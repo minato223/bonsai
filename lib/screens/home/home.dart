@@ -1,15 +1,13 @@
 import 'package:bonsai/constants/app_colors.dart';
 import 'package:bonsai/constants/app_constant.dart';
 import 'package:bonsai/constants/app_icons.dart';
-import 'package:bonsai/constants/app_images.dart';
 import 'package:bonsai/constants/app_typography.dart';
 import 'package:bonsai/models/bonsai.dart';
+import 'package:bonsai/screens/detail/detail.dart';
 import 'package:bonsai/screens/home/widgets/home_app_bar.dart';
 import 'package:bonsai/screens/home/widgets/home_nav_bar.dart';
 import 'package:bonsai/screens/home/widgets/home_search_bar.dart';
-import 'package:clip_shadow/clip_shadow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -115,7 +113,10 @@ class _HomeState extends State<Home> {
     return Builder(builder: (context) {
       final typo = AppTypography(context);
       return GestureDetector(
-        onTap: () {},
+        onTap: () {
+          Navigator.of(context).push(
+              MaterialPageRoute(builder: (context) => Detail(bonsai: bonsai)));
+        },
         child: Container(
           width: typo.width * .5,
           height: typo.height * .3,
@@ -170,7 +171,9 @@ class _HomeState extends State<Home> {
                                       ..scale(2.0)
                                       ..translate(-typo.SCREEN_PADDING * 2,
                                           -typo.SCREEN_PADDING * 3 / 2),
-                                    child: Image.asset(bonsai.imagePath)),
+                                    child: Hero(
+                                        tag: bonsai,
+                                        child: Image.asset(bonsai.imagePath))),
                               ),
                               Expanded(
                                   flex: 6,

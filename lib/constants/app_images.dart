@@ -2,6 +2,7 @@
 
 class AppImages {
   static String basePath = "assets/images";
+  static String bg = "$basePath/bg.png";
   static String img1 = "$basePath/img-1.png";
   static String img2 = "$basePath/img-2.png";
   static String img3 = "$basePath/img-3.png";
