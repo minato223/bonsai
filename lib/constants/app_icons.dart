@@ -6,5 +6,5 @@ class AppIcons {
   static String riuserline = "$basePath/riuserline.svg";
   static String shopping = "$basePath/shopping.svg";
   static String tablerplant = "$basePath/tablerplant.svg";
-  static String home = "$basePath/arcticons.svg";
+  static String home = "$basePath/home.svg";
 }
