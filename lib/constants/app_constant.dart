@@ -81,4 +81,11 @@ class AppConstant {
             description:
                 "Having an English translation of ‘moss ball’, the Kokedama ain’t only intended for a poor man. It’s an all-around gardening technique suitable most for minimalistic spaces. It’s a beautiful way to diversify your bonsai experience!"),
       ];
+
+  static List<String> get tabItemList => [
+        "All",
+        "Outdoors",
+        "Indoors",
+        "Garden",
+      ];
 }
