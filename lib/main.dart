@@ -1,4 +1,5 @@
 import 'package:bonsai/screens/home/home.dart';
+import 'package:bonsai/screens/landing/landing.dart';
 import 'package:flutter/material.dart';
 
 void main() {

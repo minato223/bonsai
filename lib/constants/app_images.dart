@@ -3,6 +3,9 @@
 class AppImages {
   static String basePath = "assets/images";
   static String bg = "$basePath/bg.png";
+  static String bg1 = "$basePath/bg-1.jpg";
+  static String bg2 = "$basePath/bg-2.jpg";
+  static String landingBg = "$basePath/landing-bg.jpg";
   static String img1 = "$basePath/img-1.png";
   static String img2 = "$basePath/img-2.png";
   static String img3 = "$basePath/img-3.png";

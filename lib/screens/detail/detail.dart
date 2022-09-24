@@ -1,5 +1,7 @@
 // ignore_for_file: must_be_immutable
 
+import 'dart:ui';
+
 import 'package:bonsai/constants/app_images.dart';
 import 'package:bonsai/constants/app_typography.dart';
 import 'package:bonsai/models/bonsai.dart';
@@ -21,12 +23,15 @@ class Detail extends StatelessWidget {
             width: typo.width,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage(AppImages.bg), fit: BoxFit.cover)),
+                    image: AssetImage(AppImages.bg2), fit: BoxFit.cover)),
           ),
-          Container(
-            height: typo.height,
-            width: typo.width,
-            color: Colors.black54,
+          BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+            child: Container(
+              height: typo.height,
+              width: typo.width,
+              color: Colors.black54,
+            ),
           ),
           Hero(
               tag: bonsai,
@@ -70,24 +75,43 @@ class Detail extends StatelessWidget {
                     ],
                   ),
                 ),
-                InkWell(
-                  child: Container(
-                    height: typo.width * .1,
-                    width: typo.width * .1,
-                    margin: EdgeInsets.only(left: typo.SCREEN_PADDING / 2),
-                    decoration: const BoxDecoration(
-                        color: Colors.black, shape: BoxShape.circle),
-                    child: const Icon(
-                      Icons.arrow_forward_rounded,
-                      color: Colors.white,
-                    ),
-                  ),
-                )
+                _roundedBtn(),
               ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: SafeArea(
+              child: _roundedBtn(
+                iconData: Icons.arrow_back_rounded,
+                onclick: () {
+                  Navigator.pop(context);
+                },
+              ),
             ),
           )
         ],
       ),
     );
+  }
+
+  Widget _roundedBtn({IconData? iconData, Function()? onclick}) {
+    return Builder(builder: (context) {
+      final typo = AppTypography(context);
+      return InkWell(
+        onTap: onclick,
+        child: Container(
+          height: typo.width * .1,
+          width: typo.width * .1,
+          margin: EdgeInsets.only(left: typo.SCREEN_PADDING / 2),
+          decoration:
+              const BoxDecoration(color: Colors.black, shape: BoxShape.circle),
+          child: Icon(
+            iconData ?? Icons.arrow_forward_rounded,
+            color: Colors.white,
+          ),
+        ),
+      );
+    });
   }
 }
