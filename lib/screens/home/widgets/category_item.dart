@@ -69,7 +69,9 @@ Widget category_item_builder(Bonsai bonsai) {
                             transform: Matrix4.identity()
                               ..setEntry(3, 2, 0.001)
                               ..scale(1.4),
-                            child: Image.asset(bonsai.imagePath),
+                            child: Hero(
+                                tag: bonsai,
+                                child: Image.asset(bonsai.imagePath)),
                           ))
                     ],
                   ),

@@ -15,13 +15,14 @@ Widget tab_item(
         decoration: BoxDecoration(
             color: selectItem == currentItem ? AppColors.mainColor : null,
             borderRadius: BorderRadius.circular(typo.h3)),
-        child: FittedBox(
-            child: Text(
-          currentItem,
-          style: TextStyle(
-              color: selectItem == currentItem ? Colors.white : null,
-              fontWeight: selectItem == currentItem ? FontWeight.w500 : null),
-        )),
+        child: Center(
+          child: Text(
+            currentItem,
+            style: TextStyle(
+                color: selectItem == currentItem ? Colors.white : null,
+                fontWeight: selectItem == currentItem ? FontWeight.w500 : null),
+          ),
+        ),
       ),
     );
   });

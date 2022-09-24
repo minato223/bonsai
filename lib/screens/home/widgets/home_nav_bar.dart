@@ -73,19 +73,29 @@ class HomeNavBar extends StatelessWidget {
           Align(
             alignment: Alignment.topCenter,
             child: InkWell(
-              child: Container(
-                height: typo.width * .14,
-                width: typo.width * .14,
-                padding: EdgeInsets.all(typo.SCREEN_PADDING / 3),
-                decoration: BoxDecoration(
-                    border: Border.all(
-                        width: 3, color: Color.fromARGB(255, 233, 133, 133)),
-                    color: AppColors.mainColor,
-                    shape: BoxShape.circle),
-                child: SvgPicture.asset(
-                  AppIcons.qrscanner,
-                  color: Colors.white,
-                ),
+              child: TweenAnimationBuilder(
+                duration: const Duration(milliseconds: 600),
+                tween: Tween<double>(begin: 0, end: 1),
+                builder: (context, value, child) {
+                  return Transform.scale(
+                    scale: value,
+                    child: Container(
+                      height: typo.width * .14,
+                      width: typo.width * .14,
+                      padding: EdgeInsets.all(typo.SCREEN_PADDING / 3),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                              width: 3,
+                              color: Color.fromARGB(255, 233, 133, 133)),
+                          color: AppColors.mainColor,
+                          shape: BoxShape.circle),
+                      child: SvgPicture.asset(
+                        AppIcons.qrscanner,
+                        color: Colors.white,
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
           )

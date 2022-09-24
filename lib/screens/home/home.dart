@@ -51,7 +51,9 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         return Future.delayed(_animationDuration);
       });
     }
-    f.then((value) {});
+    f.then((value) {
+      setState(() {});
+    });
   }
 
   startCategoryAnimation() async {
@@ -98,6 +100,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                 height: typo.height * .1,
                 child: AnimatedList(
                     key: _tabKey,
+                    initialItemCount: _tabList.length,
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
                     itemBuilder: ((context, index, animation) {
@@ -105,8 +108,8 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
                         tween: Tween<double>(begin: 0, end: 1),
                         duration: _animationDuration,
                         builder: (context, value, child) {
-                          return AnimatedOpacity(
-                            duration: Duration.zero,
+                          return Opacity(
+                            // duration: Duration.zero,
                             opacity: value,
                             child: SlideTransition(
                                 position: animation.drive(Tween<Offset>(
@@ -155,6 +158,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
         height: typo.height * .4,
         child: AnimatedList(
             key: _categoryKey,
+            initialItemCount: _bonsaiCategories.length,
             scrollDirection: Axis.horizontal,
             physics: const BouncingScrollPhysics(),
             itemBuilder: ((context, index, animation) {

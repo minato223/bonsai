@@ -1,4 +1,3 @@
-import 'package:bonsai/screens/home/home.dart';
 import 'package:bonsai/screens/landing/landing.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue, fontFamily: "Poppins"),
-      home: const Home(),
+      home: const Landing(),
     );
   }
 }

@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:bonsai/constants/app_images.dart';
 import 'package:bonsai/constants/app_typography.dart';
 import 'package:bonsai/models/bonsai.dart';
+import 'package:bonsai/screens/animation/fade_animation.dart';
 import 'package:flutter/material.dart';
 
 class Detail extends StatelessWidget {
@@ -55,22 +56,26 @@ class Detail extends StatelessWidget {
                     mainAxisSize: MainAxisSize.min,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      FadeAnimation(
+                          child: Text(
                         bonsai.name,
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
                             fontSize: typo.h1),
-                      ),
+                      )),
                       SizedBox(height: typo.SCREEN_PADDING),
-                      Text(
-                        bonsai.description,
-                        maxLines: 3,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            fontSize: typo.h3),
+                      FadeAnimation(
+                        duration: 600,
+                        child: Text(
+                          bonsai.description,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: typo.h3),
+                        ),
                       ),
                     ],
                   ),
